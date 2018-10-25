@@ -1,0 +1,17 @@
+.menu {
+	max-height: 40px;
+}
+
+.center {
+	min-width: 30vw;
+	
+	position: absolute;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%);
+}
+
+.row.button {
+	min-width: 50vw;
+}
+

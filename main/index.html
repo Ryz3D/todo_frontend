@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="../semantic/dist/semantic.min.js"></script>
+		<script src="index.js"></script>
+		<title>To-Do - Home</title>
+	</head>
+	
+	<body id="body">
+		<div id="nav" class="ui left sidebar inverted vertical menu"></div>
+		<div class="pusher">
+			<div class="ui menu">
+				<button id="btnMenuToggle" class="ui item horizontal animated basic button">
+					<div class="hidden content">
+						<i class="chevron right icon"></i>
+					</div>
+					<div class="visible content">
+						Menu
+					</div>
+				</button>
+				<div class="ui item header">To-Do</div>
+				<div class="ui right aligned item">
+					<div class="ui breadcrumb">
+						<div class="section">App</div>
+						<i class="right angle icon divider"></i>
+						<div class="active section">Home</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="ui center aligned grid">
+				<div class="twelve wide column">
+					<div class="ui segment">
+						<a class="ui top left attached primary label">
+							<i class="calendar minus icon"></i>
+							Past
+						</a>
+						
+						<a class="ui top right attached primary label">
+							<i class="calendar plus icon"></i>
+							Future
+						</a>
+						
+						<h2 class="ui row header">Present</h2>
+						<div id="list"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

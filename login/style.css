@@ -1,0 +1,17 @@
+body {
+	padding-top: 25vh;
+}
+
+.margin_top {
+	margin-top: 10px;
+}
+
+.main_content {
+	max-width: 350px;
+	
+	position: absolute;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%);
+}
+

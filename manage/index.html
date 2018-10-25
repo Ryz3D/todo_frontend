@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="../semantic/dist/semantic.min.js"></script>
+		<script src="index.js"></script>
+		<title>To-Do - Manage</title>
+	</head>
+	<body>
+		<div id="nav" class="ui left sidebar inverted vertical menu"></div>
+		<div class="pusher">
+			<div class="ui menu">
+				<button id="btnMenuToggle" class="ui item horizontal animated basic button">
+					<div class="hidden content">
+						<i class="chevron right icon"></i>
+					</div>
+					<div class="visible content">
+						Menu
+					</div>
+				</button>
+				<div class="ui item header">To-Do</div>
+				<div class="ui right aligned item">
+					<div class="ui breadcrumb">
+						<div class="section">App</div>
+						<i class="right angle icon divider"></i>
+						<div class="active section">Manage</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="ui center aligned container">
+				<div class="ui center aligned one column grid">
+					<div class="ui row"></div>
+					
+					<a href="/edit" class="ui row basic header button">
+						<i class="plus icon"></i>
+						New Task
+					</a>
+					
+					<a href="/select_edit" class="ui row basic header button">
+						<i class="edit icon"></i>
+						Edit Tasks
+					</a>
+					
+					<a href="/select_check" class="ui row basic header button">
+						<i class="check icon"></i>
+						Check Tasks
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
