@@ -6,10 +6,12 @@
 		
 		<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
-
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		
+		<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 		<script src="../semantic/dist/semantic.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
 		<script src="index.js"></script>
 		<title>To-Do - Home</title>
 	</head>
@@ -39,21 +41,14 @@
 			<div class="ui center aligned grid">
 				<div class="twelve wide column">
 					<div class="ui segment">
-						<a class="ui top left attached primary label">
-							<i class="calendar minus icon"></i>
-							Past
-						</a>
-						
-						<a class="ui top right attached primary label">
-							<i class="calendar plus icon"></i>
-							Future
-						</a>
-						
-						<h2 class="ui row header">Present</h2>
+						<h2 class="ui row header">Tasks</h2>
 						
 						<div v-for="item in tasks">
 							<div class="ui divider"></div>
-							<a :href="'../details?id=' + item.id" class="ui basic fluid button noborder">
+							<a :href="'../details?id=' + item.id" class="ui basic fluid button segment noborder">
+								<div class="ui top right attached label">
+									{{item.date}}
+								</div>
 								<div class="ui row header">{{item.title}}</div>
 								<p class="ui row">{{item.desc}}</p>
 							</a>

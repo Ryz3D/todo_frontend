@@ -4,14 +4,16 @@ tasks = [
 		'title': 'Why is the milk gone?',
 		'desc': 'Description.',
 		'date': '18.9.2022',
-		'repeat': 1
+		'repeat': 1,
+		'trash': 0
 	},
 	{
 		'id': 1,
 		'title': 'Task No. 2',
 		'desc': 'Description No. 2',
 		'date': '19.9.2022',
-		'repeat': 2
+		'repeat': 2,
+		'trash': 1
 	}];
 
 $(document)
@@ -21,7 +23,7 @@ $(document)
 		var app = new Vue({
 			el: '.pusher',
 			data: {
-				tasks: tasks
+				tasks: tasks.filter(t => t.trash == 1)
 			},
 			methods: {
 				menuToggle: function() {

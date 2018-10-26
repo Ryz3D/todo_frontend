@@ -6,21 +6,19 @@ repeatText = [
 	'Annually'
 ];
 
-tasks = [
-	{
-		'id': 0,
-		'title': 'Why is the milk gone?',
-		'desc': 'Description.',
-		'date': '18.9.2022',
-		'repeat': 1
-	},
-	{
-		'id': 1,
-		'title': 'Task No. 2',
-		'desc': 'Description No. 2',
-		'date': '19.9.2022',
-		'repeat': 2
-	}];
+var config = {
+	apiKey: "AIzaSyC1_a0kfoNjVNGw6fmn2fGAesjd6ycBAMw",
+	authDomain: "todo-51d3e.firebaseapp.com",
+	databaseURL: "https://todo-51d3e.firebaseio.com",
+	projectId: "todo-51d3e",
+	storageBucket: "todo-51d3e.appspot.com",
+	messagingSenderId: "597208306235"
+};
+firebase.initializeApp(config);
+
+var tasksRef = firebase.database().ref('users/ryz/tasks');
+
+var app;
 
 $(document)
 	.ready(function() {
@@ -37,10 +35,19 @@ $(document)
 		if (id == NaN)
 			return;
 		
-		var app = new Vue({
+		tasksRef.child(id).once("value").then(function(s) {app.task = s.val();});
+		
+		app = new Vue({
 			el: '.pusher',
 			data: {
-				task: tasks[id],
+				task: {
+					'id': -1,
+					'title': '',
+					'desc': '',
+					'date': '',
+					'repeat': 0,
+					'trash': 0
+				},
 				repeatText: repeatText
 			},
 			methods: {

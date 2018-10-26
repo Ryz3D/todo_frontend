@@ -8,7 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" href="../node_modules/semantic-ui-calendar/dist/calendar.min.css" />
 		
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 		<script src="../semantic/dist/semantic.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script type="text/javascript" src="../node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>
@@ -49,14 +50,14 @@
 							<div class="ui field">
 								<label>Title</label>
 								<div class="ui left icon input">
-									<input id="title" :value="task.title"></input>
+									<input id="title" v-model="task.title"></input>
 									<i class="heading icon"></i>
 								</div>
 							</div>
 							
 							<div class="ui field">
 								<label>Description</label>
-								<textarea :value="task.desc"></textarea>
+								<textarea v-model="task.desc"></textarea>
 							</div>
 							
 							<div class="ui field">
@@ -72,7 +73,7 @@
 							<div class="ui field">
 								<label>Repeat</label>
 								<div class="ui selection dropdown">
-									<input type="hidden" id="repeat" :value="task.repeat">
+									<input type="hidden" id="repeat" v-model="task.repeat">
 									<i class="dropdown icon"></i>
 									<div class="default text">Repeat</div>
 									<div class="menu">
@@ -84,6 +85,13 @@
 								</div>
 							</div>
 							
+							<a @click="del" class="ui vertical animated red button">
+								<div class="visible content">Delete</div>
+								<div class="hidden content">
+									<i class="trash icon"></i>
+								</div>
+							</a>
+							
 							<a href="../select_edit" class="ui vertical animated button">
 								<div class="visible content">Cancel</div>
 								<div class="hidden content">
@@ -91,7 +99,7 @@
 								</div>
 							</a>
 							
-							<div class="ui vertical animated primary button">
+							<div @click="update" class="ui vertical animated primary button">
 								<div class="visible content">Save</div>
 								<div class="hidden content">
 									<i class="save icon"></i>
