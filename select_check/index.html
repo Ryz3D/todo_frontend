@@ -6,11 +6,11 @@
 		
 		<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		
+
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 		<script src="../semantic/dist/semantic.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="index.js"></script>
-		
 		<title>To-Do - Check</title>
 	</head>
 	
@@ -18,7 +18,7 @@
 		<div id="nav" class="ui left sidebar inverted vertical menu"></div>
 		<div class="pusher">
 			<div class="ui menu">
-				<button id="btnMenuToggle" class="ui item horizontal animated basic button">
+				<button @click="menuToggle" class="ui item horizontal animated basic button">
 					<div class="hidden content">
 						<i class="chevron right icon"></i>
 					</div>
@@ -43,19 +43,14 @@
 					<div class="ui segment">
 						<h2 class="ui row header">Check</h2>
 						
-						<div class="ui divider"></div>
-						<div class="ui row header">Task 1</div>
-						<p class="ui row">Description...</p>
-						<button class="ui primary circular icon button">
-							<i class="check icon"></i>
-						</button>
-						
-						<div class="ui divider"></div>
-						<div class="ui row header">Task 2</div>
-						<p class="ui row">Description...</p>
-						<button class="ui primary circular icon button">
-							<i class="check icon"></i>
-						</button>
+						<div v-for="item in tasks">
+							<div class="ui divider"></div>
+							<div class="ui row header">{{item.title}}</div>
+							<p class="ui row">{{item.desc}}</p>
+							<button class="ui primary circular icon button">
+								<i class="check icon"></i>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>

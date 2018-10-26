@@ -6,19 +6,19 @@
 		
 		<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		
+
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 		<script src="../semantic/dist/semantic.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="index.js"></script>
-		
 		<title>To-Do - Edit</title>
 	</head>
 	
 	<body id="body">
 		<div id="nav" class="ui left sidebar inverted vertical menu"></div>
-		<div class="pusher">
+		<div id="app-root" class="pusher">
 			<div class="ui menu">
-				<button id="btnMenuToggle" class="ui item horizontal animated basic button">
+				<button @click="menuToggle" class="ui item horizontal animated basic button">
 					<div class="hidden content">
 						<i class="chevron right icon"></i>
 					</div>
@@ -43,19 +43,14 @@
 					<div class="ui segment">
 						<h2 class="ui row header">Edit</h2>
 						
-						<div class="ui divider"></div>
-						<div class="ui row header">Task 1</div>
-						<p class="ui row">Description...</p>
-						<a href="../edit" class="ui primary circular icon button">
-							<i class="edit icon"></i>
-						</a>
-						
-						<div class="ui divider"></div>
-						<div class="ui row header">Task 2</div>
-						<p class="ui row">Description...</p>
-						<a href="../edit" class="ui primary circular icon button">
-							<i class="edit icon"></i>
-						</a>
+						<div v-for="item in tasks">
+							<div class="ui divider"></div>
+							<div class="ui row header">{{item.title}}</div>
+							<p class="ui row">{{item.desc}}</p>
+							<a :href="'../edit?id=' + item.id" class="ui primary circular icon button">
+								<i class="edit icon"></i>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

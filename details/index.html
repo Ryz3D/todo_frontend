@@ -6,19 +6,19 @@
 		
 		<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		
+
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 		<script src="../semantic/dist/semantic.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="index.js"></script>
-		
 		<title>To-Do - Task</title>
 	</head>
 	
 	<body id="body">
 		<div id="nav" class="ui left sidebar inverted vertical menu"></div>
-		<div class="pusher">
+		<div id="app-root" class="pusher">
 			<div class="ui menu">
-				<button id="btnMenuToggle" class="ui item horizontal animated basic button">
+				<button @click="menuToggle" class="ui item horizontal animated basic button">
 					<div class="hidden content">
 						<i class="chevron right icon"></i>
 					</div>
@@ -46,14 +46,14 @@
 				<div class="twelve wide column">
 					<div class="ui segment">
 						<div class="ui top right attached label">
-							18.9.2022
+							{{task.date}}
 							<br/>
 							<i class="sync alternate icon"></i>
-							Once
+							{{repeatText[task.repeat]}}
 						</div>
 						
-						<h2 id="title" class="ui row header"></h2>
-						<p id="description" class="ui row"></p>
+						<h2 class="ui row header">{{task.title}}</h2>
+						<p class="ui row">{{task.desc}}</p>
 					</div>
 				</div>
 			</div>

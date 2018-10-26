@@ -1,8 +1,17 @@
 $(document)
 	.ready(function() {
 		$("#nav").load("../nav/index.html");
-		$("#btnMenuToggle").click(function() {
-			$(".ui.sidebar").sidebar("toggle");
+		
+		var app = new Vue({
+			el: '.pusher',
+			data: {
+				
+			},
+			methods: {
+				menuToggle: function() {
+					$(".ui.sidebar").sidebar("toggle");
+				}
+			}
 		});
 	});
 

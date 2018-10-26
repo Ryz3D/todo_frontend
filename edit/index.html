@@ -5,14 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
-		<link rel="stylesheet" type="text/css" href="../node_modules/semantic-ui-calendar/dist/calendar.min.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="../node_modules/semantic-ui-calendar/dist/calendar.min.css" />
 		
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 		<script src="../semantic/dist/semantic.min.js"></script>
-		<script src="../node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript" src="../node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>
 		<script src="index.js"></script>
-		
 		<title>To-Do - Edit Task</title>
 	</head>
 	
@@ -20,7 +20,7 @@
 		<div id="nav" class="ui left sidebar inverted vertical menu"></div>
 		<div class="pusher">
 			<div class="ui menu">
-				<button id="btnMenuToggle" class="ui item horizontal animated basic button">
+				<button @click="menuToggle" class="ui item horizontal animated basic button">
 					<div class="hidden content">
 						<i class="chevron right icon"></i>
 					</div>
@@ -49,14 +49,14 @@
 							<div class="ui field">
 								<label>Title</label>
 								<div class="ui left icon input">
-									<input id="title"></input>
+									<input id="title" :value="task.title"></input>
 									<i class="heading icon"></i>
 								</div>
 							</div>
 							
 							<div class="ui field">
 								<label>Description</label>
-								<textarea></textarea>
+								<textarea :value="task.desc"></textarea>
 							</div>
 							
 							<div class="ui field">
@@ -64,7 +64,7 @@
 								<div class="ui calendar">
 									<div class="ui input left icon">
 										<i class="calendar icon"></i>
-										<input type="text" placeholder="Date">
+										<input type="text" placeholder="Date" :value="task.date">
 									</div>
 								</div>
 							</div>
@@ -72,7 +72,7 @@
 							<div class="ui field">
 								<label>Repeat</label>
 								<div class="ui selection dropdown">
-									<input type="hidden" id="repeat">
+									<input type="hidden" id="repeat" :value="task.repeat">
 									<i class="dropdown icon"></i>
 									<div class="default text">Repeat</div>
 									<div class="menu">
@@ -84,12 +84,12 @@
 								</div>
 							</div>
 							
-							<div class="ui vertical animated button">
+							<a href="../select_edit" class="ui vertical animated button">
 								<div class="visible content">Cancel</div>
 								<div class="hidden content">
 									<i class="times icon"></i>
 								</div>
-							</div>
+							</a>
 							
 							<div class="ui vertical animated primary button">
 								<div class="visible content">Save</div>

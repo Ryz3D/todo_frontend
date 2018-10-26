@@ -1,7 +1,32 @@
+tasks = [
+	{
+		'id': 0,
+		'title': 'Why is the milk gone?',
+		'desc': 'Description.',
+		'date': '18.9.2022',
+		'repeat': 1
+	},
+	{
+		'id': 1,
+		'title': 'Task No. 2',
+		'desc': 'Description No. 2',
+		'date': '19.9.2022',
+		'repeat': 2
+	}];
+
 $(document)
 	.ready(function() {
 		$("#nav").load("../nav/index.html");
-		$("#btnMenuToggle").click(function() {
-			$(".ui.sidebar").sidebar("toggle");
+		
+		var app = new Vue({
+			el: '.pusher',
+			data: {
+				tasks: tasks
+			},
+			methods: {
+				menuToggle: function() {
+					$(".ui.sidebar").sidebar("toggle");
+				}
+			}
 		});
 	});
